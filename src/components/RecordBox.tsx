@@ -52,7 +52,7 @@ const RecordBox = () => {
         video: false,
         audio: true,
       });
-      console.log("deed", mediaBlobUrl);
+      // console.log("deed", mediaBlobUrl);
 
     // const convertFileToBase64 = (file:any) =>
     // new Promise((resolve, reject) => {
@@ -77,7 +77,7 @@ const RecordBox = () => {
         }}>
             <Box display="flex" alignItems="center" height="100%" justifyContent="space-between">
                 <Box>
-                    <audio src={mediaBlobUrl} controls loop />
+                    <audio src={mediaBlobUrl ?? ""} controls loop />
                 </Box>
                 <Box display="flex" alignItems="center">
                     <TimeBox marginRight="20px">
