@@ -21,7 +21,7 @@ const Navigation = () => {
                 </NavLink>
             </Box>
             <Box className="nav-link" textAlign="center" width="300px">
-                <NavLink>Login</NavLink>
+                <NavLink href="#">Login</NavLink>
                 <NavLink>Contact</NavLink>
                 <InvestButton variant="contained">Try For Free</InvestButton>
             </Box>
