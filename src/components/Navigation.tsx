@@ -3,7 +3,12 @@ import { Button } from '@mui/material'
 import { Box } from '@mui/system'
 import React from 'react'
 
-const Navigation = () => {
+const Navigation = ({logout , isAuth} :any) => {
+
+    const handleLogout = () => {
+        logout()
+    }
+
     return (
         <Box display="flex" alignItems="center" justifyContent="center" padding="20px">
             <Box textAlign="center" width="300px">
@@ -20,8 +25,11 @@ const Navigation = () => {
                     Support
                 </NavLink>
             </Box>
-            <Box className="nav-link" textAlign="center" width="300px">
-                <NavLink href="#">Login</NavLink>
+            <Box className="nav-link" textAlign="center" width="400px" display="flex" alignItems="center">
+                {
+                    isAuth ? <NavLink onClick={handleLogout}>Log Out</NavLink>:<NavLink href="/login">Log In</NavLink>
+                }
+                {console.log(isAuth)}
                 <NavLink>Contact</NavLink>
                 <InvestButton variant="contained">Try For Free</InvestButton>
             </Box>
