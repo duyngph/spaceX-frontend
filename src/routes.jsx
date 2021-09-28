@@ -4,12 +4,17 @@ import Home from './pages/Home'
 import Loginpage from './pages/Loginpage'
 import Admin from './database/Admin'
 import Cookies from 'js-cookie'
+import Navigation from './components/navigation/Navigation'
+import Text2Speech from './pages/text2speech/Text2Speech'
+import Pic2Text from './pages/pic2text/Pic2Text'
 
 const Routes = () => {
   const [user , setUser] = React.useState({username:""})
   const [error, setError] = React.useState("")
   const [auth, setAuth] = React.useState(false)
   
+  console.log(user)
+
   const readCookies = () => {
     const userCookies = Cookies.get("user")
     if(userCookies){
@@ -48,18 +53,29 @@ const Routes = () => {
 
     return (
       <Router>
+
         <Switch>
-          <Route exact path="/">
-          <Home logout={logOut} isAuth={auth} />
-            {/* {
-              auth ? <Home logout={logOut} /> : <Redirect to="/login" />
-            } */}
-          </Route>
           <Route exact path="/login">
             {
               auth ? <Redirect to="/" /> : <Loginpage login={logIn} error={error} />
             }
           </Route>
+          <div>
+            <Navigation logout={logOut} isAuth={auth} />
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/speech2text">
+              <Redirect to="/" />
+            </Route>
+            <Route exact path="/text2speech">
+              <Text2Speech />
+            </Route>
+            <Route exact path="/recorgtext2pic">
+              <Pic2Text />
+            </Route>
+          </div>
+          
         </Switch>
       </Router>
     )
