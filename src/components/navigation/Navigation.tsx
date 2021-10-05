@@ -23,8 +23,8 @@ const Navigation = ({logout , isAuth} :any) => {
     };
     
     return (
-        <Box display="flex" alignItems="center" justifyContent="space-between" padding="20px">
-            <Box textAlign="center" width="400px" sx={{
+        <Box display="flex" alignItems="center" justifyContent="space-between" padding="15px 40px">
+            <Box display="flex" justifyContent="start" width="400px" sx={{
                 a : {
                     textDecoration: 'none',
                     color: '#000',
@@ -33,7 +33,7 @@ const Navigation = ({logout , isAuth} :any) => {
             }}>
                 <a href="/">Your Logo is Here</a>
             </Box>
-            <Box display="flex" width="400px" justifyContent="center" className="nav-link" alignItems="center">
+            <Box display="flex" width="500px" justifyContent="center" className="nav-link" alignItems="center">
                 {
                     data.map((entry) => {
                         if(entry.child !== undefined) {
@@ -82,13 +82,13 @@ const Navigation = ({logout , isAuth} :any) => {
                     })
                 }
             </Box>
-            <Box className="nav-link" width="400px" textAlign="center" display="flex" alignItems="center">
+            <Box className="nav-link" width="400px" justifyContent="end" display="flex" alignItems="center">
                 {
                     isAuth ? <NavLink onClick={handleLogout}>Log Out</NavLink>:<NavLink href="/login">Log In</NavLink>
                 }
                 {console.log(isAuth)}
                 <NavLink>Contact</NavLink>
-                <InvestButton variant="contained">Try For Free</InvestButton>
+                <InvestButton variant="contained">Sign Up Free</InvestButton>
             </Box>
         </Box>
     )
